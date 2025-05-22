@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}Strategic Hospitality Advisory | CRSA{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8 mx-auto text-center">
+        <h1 class="display-3 fw-bold mb-4">Strategic Advisory for Hospitality Leaders</h1>
+        <p class="lead mb-5">Helping investors, owners, and operators navigate complexity with clarity and precision</p>
+        <div class="d-flex gap-3 justify-content-center">
+          <a href="{{ url_for('main.contact') }}" class="btn btn-light btn-lg px-4">Get in Touch</a>
+          <a href="{{ url_for('main.services') }}" class="btn btn-outline-light btn-lg px-4">Our Services</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Value Proposition Section -->
+<section class="py-7">
+  <div class="container">
+    <div class="text-center mb-6">
+      <h2 class="section-title">Where We Create Value</h2>
+      <p class="lead text-muted mx-auto" style="max-width: 700px;">High-impact advisory that empowers better strategic decisions</p>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 service-card">
+          <div class="card-body p-4">
+            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3 mb-4 mx-auto" style="width: 70px; height: 70px;">
+              <i class="fas fa-chess-king fa-2x"></i>
+            </div>
+            <h5 class="mb-3">Investment Strategy</h5>
+            <p class="text-muted">Guiding capital deployment, divestment, and repositioning decisions with asset-level insight and market intelligence.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 service-card">
+          <div class="card-body p-4">
+            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3 mb-4 mx-auto" style="width: 70px; height: 70px;">
+              <i class="fas fa-chart-line fa-2x"></i>
+            </div>
+            <h5 class="mb-3">Asset Performance</h5>
+            <p class="text-muted">Aligning operations, guest experience, and profitability with long-term strategic goals.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 service-card">
+          <div class="card-body p-4">
+            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3 mb-4 mx-auto" style="width: 70px; height: 70px;">
+              <i class="fas fa-cogs fa-2x"></i>
+            </div>
+            <h5 class="mb-3">Capital Structure</h5>
+            <p class="text-muted">Structuring financial architecture that enhances resilience and maximizes value.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 service-card">
+          <div class="card-body p-4">
+            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3 mb-4 mx-auto" style="width: 70px; height: 70px;">
+              <i class="fas fa-users fa-2x"></i>
+            </div>
+            <h5 class="mb-3">Strategic Alignment</h5>
+            <p class="text-muted">Providing senior-level guidance to align stakeholders and support value creation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience Section -->
+<section class="py-7 bg-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <h2 class="mb-4">We've Sat in Your Seat</h2>
+        <p class="lead mb-4">We're not external consultants—we're principals who have been on all sides of the table.</p>
+        <p>We've made high-stakes decisions as lenders, owners, investors, and operators. That firsthand experience shapes how we think, how we work, and how we help you create value.</p>
+        <p class="font-weight-bold">And when we work with you, it's us—directly. Always.</p>
+      </div>
+      <div class="col-lg-6">
+        <div class="ps-lg-5">
+          <div class="card border-0 bg-primary text-white overflow-hidden">
+            <div class="card-body p-5">
+              <div class="position-relative z-index-1">
+                <h3 class="mb-4">Why Clients Trust Us</h3>
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-3 d-flex">
+                    <i class="fas fa-check-circle me-3 mt-1"></i>
+                    <span>50+ years combined hospitality experience</span>
+                  </li>
+                  <li class="mb-3 d-flex">
+                    <i class="fas fa-check-circle me-3 mt-1"></i>
+                    <span>Hands-on operational and financial expertise</span>
+                  </li>
+                  <li class="mb-3 d-flex">
+                    <i class="fas fa-check-circle me-3 mt-1"></i>
+                    <span>Proven track record in complex transactions</span>
+                  </li>
+                  <li class="d-flex">
+                    <i class="fas fa-check-circle me-3 mt-1"></i>
+                    <span>Direct partner access with no junior intermediaries</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-6 bg-primary text-white">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8">
+        <h2 class="display-5 mb-4">Ready to transform your hospitality strategy?</h2>
+        <p class="lead mb-5 opacity-75">Schedule a confidential consultation with our principals.</p>
+        <a href="{{ url_for('main.contact') }}" class="btn btn-light btn-lg px-5">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
