@@ -1,137 +1,1004 @@
-{% extends "base.html" %}
-
-{% block title %}Strategic Hospitality Advisory | CRSA{% endblock %}
-
-{% block content %}
-<!-- Hero Section -->
-<section class="hero-section">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-8 mx-auto text-center">
-        <h1 class="display-3 fw-bold mb-4">Strategic Advisory for Hospitality Leaders</h1>
-        <p class="lead mb-5">Helping investors, owners, and operators navigate complexity with clarity and precision</p>
-        <div class="d-flex gap-3 justify-content-center">
-          <a href="{{ url_for('main.contact') }}" class="btn btn-light btn-lg px-4">Get in Touch</a>
-          <a href="{{ url_for('main.services') }}" class="btn btn-outline-light btn-lg px-4">Our Services</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Value Proposition Section -->
-<section class="py-7">
-  <div class="container">
-    <div class="text-center mb-6">
-      <h2 class="section-title">Where We Create Value</h2>
-      <p class="lead text-muted mx-auto" style="max-width: 700px;">High-impact advisory that empowers better strategic decisions</p>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100 service-card">
-          <div class="card-body p-4">
-            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3 mb-4 mx-auto" style="width: 70px; height: 70px;">
-              <i class="fas fa-chess-king fa-2x"></i>
-            </div>
-            <h5 class="mb-3">Investment Strategy</h5>
-            <p class="text-muted">Guiding capital deployment, divestment, and repositioning decisions with asset-level insight and market intelligence.</p>
-          </div>
+    <!-- Modern, professional fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Refined Brand Colors */
+            --primary-navy: #0F2D52;
+            --secondary-teal: #007D8C;
+            --accent-gold: #C4A86F;
+            --dark-charcoal: #1E1E1E;
+            --light-gray: #F5F7FA;
+            --medium-gray: #E0E5EC;
+            --text-dark: #2D3748;
+            --text-light: #718096;
+            --white: #FFFFFF;
+            
+            /* Typography */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Playfair Display', Georgia, serif;
+            
+            /* Spacing & Layout */
+            --border-radius: 6px;
+            --border-radius-lg: 12px;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Base Styles */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--dark-charcoal);
+        }
+
+        /* Navigation - Minimalist */
+        .navbar {
+        padding: 2rem 0; /* Increased navbar height */
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(10px);
+        transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        border-bottom: 1px solid rgba(224, 229, 236, 0.5);
+    }
+
+    .navbar.scrolled {
+        padding: 1.5rem 0;
+    }
+
+    .navbar-brand {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 2.25rem;
+        color: #005f73 !important; /* Dark teal */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 1.2;
+    }
+
+    .brand-tagline {
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: var(--text-light) !important;
+        font-family: var(--font-primary);
+        letter-spacing: 0.1em;
+        margin-top: 0.2rem;
+    }
+
+
+        /* Modern Hamburger Menu */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+            position: relative;
+            z-index: 1002;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--primary-navy);
+            margin: 3px 0;
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            transform-origin: center;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+            background-color: var(--white);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+            background-color: var(--white);
+        }
+
+        /* Fullscreen Menu Overlay */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, 
+                rgba(15, 45, 82, 0.95) 0%, 
+                rgba(0, 125, 140, 0.95) 100%);
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .menu-nav {
+            text-align: center;
+            transform: translateY(30px);
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .menu-overlay.active .menu-nav {
+            transform: translateY(0);
+        }
+
+        .menu-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-nav li {
+            margin: 2rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .menu-overlay.active .menu-nav li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .menu-nav li:nth-child(1) { transition-delay: 0.1s; }
+        .menu-nav li:nth-child(2) { transition-delay: 0.2s; }
+        .menu-nav li:nth-child(3) { transition-delay: 0.3s; }
+        .menu-nav li:nth-child(4) { transition-delay: 0.4s; }
+
+        .menu-nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 2.5rem;
+            font-family: var(--font-display);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+
+        .menu-nav a:hover {
+            color: var(--accent-gold);
+            transform: translateY(-5px);
+        }
+
+        .menu-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .menu-nav a:hover::after {
+            width: 100%;
+        }
+
+   /* Hero Section - Premium Entrance */
+   .hero-section {
+        background: linear-gradient(135deg, 
+            rgba(15, 45, 82, 0.95) 0%, 
+            rgba(0, 125, 140, 0.9) 100%);
+        color: white;
+        height: 100vh;
+        min-height: 800px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding-top: 120px; /* Increased to account for taller navbar */
+    }
+
+
+
+    .hero-content {
+        width: 100%;
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+
+    .hero-subtitle {
+        font-size: 2rem;
+        font-weight: 400;
+        color: white;
+        margin-bottom: 2rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.4;
+    }
+
+    .hero-text-content {
+        max-width: 800px;
+        margin: 0 auto;
+        opacity: 0;
+        animation: fadeIn 1s ease-out forwards;
+        animation-delay: 0.5s;
+    }
+
+    .hero-text-content .lead {
+        color: rgba(255,255,255,0.85);
+        font-weight: 300;
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+
+    .hero-text-content .lead strong {
+        font-weight: 500;
+        color: white;
+    }
+
+    @keyframes fadeIn {
+        to { opacity: 1; }
+    }
+
+        /* Section Styling */
+        .section {
+            padding-top: 80px;
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.75rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-teal);
+        }
+
+        /* Enhanced Service Cards */
+        .service-card {
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem;
+            height: 500px;
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary-teal);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--secondary-teal);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: var(--secondary-teal);
+            color: var(--white);
+            border-radius: 50%;
+            font-weight: 600;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-number {
+            background: var(--primary-navy);
+            transform: scale(1.1);
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            color: var(--primary-navy);
+        }
+
+        .service-summary {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .service-details {
+            display: none;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .service-card:hover .service-title {
+            color: var(--secondary-teal);
+            transform: translateY(-5px);
+        }
+
+        .service-card:hover .service-summary {
+            display: none;
+        }
+
+        .service-card:hover .service-details {
+            display: block;
+        }
+
+        /* Team Section - Horizontal Cards */
+        .team-section {
+            background: var(--light-gray);
+            padding: 6rem 0;
+        }
+
+        .team-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+
+        .team-card {
+            flex: 0 0 100%;
+            padding: 0 15px;
+            margin-bottom: 3rem;
+        }
+
+        .team-member {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: 3rem;
+            height: 100%;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+
+        .team-member h3 {
+            color: var(--secondary-teal);
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+        }
+
+        .team-member h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gold);
+        }
+
+        .team-member p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Client Cards */
+        .client-card {
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem;
+            height: 100%;
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .client-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary-teal), var(--accent-gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .client-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .client-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .client-card .fas {
+            color: var(--secondary-teal);
+            transition: all 0.3s ease;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .client-card:hover .fas {
+            color: var(--accent-gold);
+            transform: scale(1.1);
+        }
+
+    /* Testimonial Section - Matching Hero Style */
+    .testimonial-section {
+        background: linear-gradient(135deg, 
+            rgba(15, 45, 82, 0.95) 0%, 
+            rgba(0, 125, 140, 0.9) 100%);
+        color: white;
+        padding: 6rem 0;
+        position: relative;
+    }
+
+    .testimonial-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+    }
+
+    .testimonial-content h3 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        color: white;
+        font-family: var(--font-display);
+    }
+
+    .testimonial-content .lead {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        color: rgba(255,255,255,0.85);
+    }
+
+    .testimonial-content .lead strong {
+        color: white;
+        font-weight: 500;
+    }
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding: 6rem 0;
+            background: var(--light-gray);
+        }
+
+        .contact-btn {
+            font-size: 1.25rem;
+            padding: 1rem 3rem;
+            letter-spacing: 0.05em;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: 2px solid var(--secondary-teal);
+            background: var(--secondary-teal);
+            color: var(--white);
+            transition: all 0.4s ease;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+        }
+
+        .contact-btn:hover {
+            color: var(--white);
+            background: linear-gradient(135deg, 
+            rgba(15, 45, 82, 0.95) 0%, 
+            rgba(0, 125, 140, 0.9) 100%);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Footer */
+        .footer {
+    background: var(--dark-charcoal);
+    color: var(--white);
+    padding: 4rem 0 2rem;
+}
+
+.footer h3,
+.footer h5 {
+    color: var(--white); /* Ensure headings are white */
+    font-family: var(--font-display); /* Match your site's heading font */
+    margin-bottom: 1.5rem;
+}
+
+.footer h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.footer h5 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--accent-gold);
+}
+
+.text-white-50 {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+        /* Animations */
+        [data-aos] {
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        [data-aos="fade-up"] {
+            transform: translateY(30px);
+            opacity: 0;
+        }
+
+        [data-aos="fade-up"].aos-animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 992px) {
+            .team-card {
+                flex: 0 0 50%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .section {
+                padding: 6rem 0;
+            }
+            
+            .menu-nav a {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2.25rem;
+            }
+            
+            .hero-section {
+                min-height: 700px;
+            }
+            
+            .menu-nav a {
+                font-size: 1.75rem;
+            }
+            
+            .service-card {
+                height: auto;
+                min-height: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .service-card {
+                padding: 1.5rem;
+            }
+            
+            .menu-nav a {
+                font-size: 1.5rem;
+            }
+            
+            .team-member {
+                padding: 2rem;
+            }
+        }
+    </style>
+    
+    <title>CRSA | Coll Rex Strategic Advisors</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <span>CRSA</span>
+                <span class="brand-tagline">COLL REX STRATEGIC ADVISORS</span>
+            </a>
+            
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-      </div>
-      
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100 service-card">
-          <div class="card-body p-4">
-            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3 mb-4 mx-auto" style="width: 70px; height: 70px;">
-              <i class="fas fa-chart-line fa-2x"></i>
-            </div>
-            <h5 class="mb-3">Asset Performance</h5>
-            <p class="text-muted">Aligning operations, guest experience, and profitability with long-term strategic goals.</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100 service-card">
-          <div class="card-body p-4">
-            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3 mb-4 mx-auto" style="width: 70px; height: 70px;">
-              <i class="fas fa-cogs fa-2x"></i>
-            </div>
-            <h5 class="mb-3">Capital Structure</h5>
-            <p class="text-muted">Structuring financial architecture that enhances resilience and maximizes value.</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100 service-card">
-          <div class="card-body p-4">
-            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3 mb-4 mx-auto" style="width: 70px; height: 70px;">
-              <i class="fas fa-users fa-2x"></i>
-            </div>
-            <h5 class="mb-3">Strategic Alignment</h5>
-            <p class="text-muted">Providing senior-level guidance to align stakeholders and support value creation.</p>
-          </div>
-        </div>
-      </div>
+    </nav>
+
+    <!-- Fullscreen Menu Overlay -->
+    <div class="menu-overlay" id="menu-overlay">
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="#services" data-menu-item>Where We Create Value</a></li>
+                <li><a href="#expertise" data-menu-item>Deep Expertise</a></li>
+                <li><a href="#clients" data-menu-item>Who We Work With</a></li>
+                <li><a href="#contact" data-menu-item>Contact</a></li>
+            </ul>
+        </nav>
     </div>
-  </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 hero-content">
+                    <h1 class="hero-subtitle">Strategic Advisory for Hospitality Investors, Owners, and Operators</h1>
+                    
+                    <div class="hero-text-content">
+                        <p class="lead">Hospitality investors, owners, and operators face increasing complexity—evolving guest expectations, rising operational pressures, volatile capital markets, and a dynamic competitive landscape.</p>
+                        <p class="lead">We help clients cut through that complexity with clarity and precision.</p>
+                        <p class="lead">Our high-impact advisory empowers better strategic decisions—creating real value through performance improvement, capital structure optimization, and sensible, actionable roadmaps that strengthen long-term resilience and unlock the full potential of each asset.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Where We Create Value</h2>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="service-number">01</div>
+                        <h3 class="service-title">Investment Strategy</h3>
+                        <p class="service-summary">Guiding capital deployment decisions with precision</p>
+                        <div class="service-details">
+                            <p>Helping guide capital deployment, divestment, and repositioning decisions—grounded in asset-level insight, market intelligence, and strategic support throughout critical negotiations.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="service-number">02</div>
+                        <h3 class="service-title">Asset Performance</h3>
+                        <p class="service-summary">Enhancing hotel asset performance</p>
+                        <div class="service-details">
+                            <p>Enhancing the performance profile of hotel assets by aligning operations, guest experience, and profitability with long-term strategic goals.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="service-number">03</div>
+                        <h3 class="service-title">Capital Structure</h3>
+                        <p class="service-summary">Optimizing financial architecture</p>
+                        <div class="service-details">
+                            <p>Structuring financial architecture that enhances resilience, preserves flexibility, and maximizes value across the capital stack.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card">
+                        <div class="service-number">04</div>
+                        <h3 class="service-title">Strategic Alignment</h3>
+                        <p class="service-summary">Aligning stakeholders for success</p>
+                        <div class="service-details">
+                            <p>Providing senior-level guidance to align stakeholders and support value creation when strategic repositioning or renewed focus is required.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="team-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Deep Expertise, Strategic Insight</h2>
+            </div>
+            
+            <div class="team-row">
+                <div class="team-card" id="javier-card">
+                    <div class="team-member">
+                        <h3>Javier Coll</h3>
+                        <p>Hospitality executive and transformative dealmaker with over 30 years of experience in global resort and leisure sectors. As co-founder of Apple Leisure Group (ALG) and its flagship brand AMResorts, he reshaped the all-inclusive resort model, transforming it into a premium, investment-grade hospitality platform.</p>
+                        <p>Under Javier's leadership, ALG expanded significantly across Latin America, the Caribbean, and Europe, growing from a few properties to over 100 resorts. He orchestrated major investment and M&A transactions, including strategic partnerships with Bain Capital and KKR, and multiple acquisitions across the hospitality value chain, positioning ALG as a vertically integrated market leader.</p>
+                        <p>The acquisition of ALG by Hyatt Hotels was a landmark event in the global hospitality industry, with Javier playing a central role as one of its key architects. He remained with Hyatt to oversee integration and expansion, driving substantial international growth.</p>
+                        <p>Throughout his career, Javier has demonstrated broad-based leadership across operations, commercial strategy, branding, and global development, consistently serving as a strategic visionary shaping the direction of entire organizations.</p>
+                        <p>Now, as co-founder of CRSA, he leverages his extensive general management expertise, visionary outlook, and deep transactional experience to guide investors, owners, and operators through complex strategic challenges.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card" id="domingo-card">
+                    <div class="team-member">
+                        <h3>Domingo Rex</h3>
+                        <p>Senior financial advisor and strategic practitioner with over 25 years of experience across banking, credit, and investment advisory in Europe and Latin America. He has advised financial institutions, funds, and corporate clients on complex transactions, particularly within the hospitality, real estate, and special situations sectors.</p>
+                        <p>Previously, Domingo held senior roles at Banco CAM, including Managing Director and Country Head in Mexico, where he managed a tourism-focused credit portfolio of nearly $2 billion. He also advised major Spanish banks such as CaixaBank and Bankia during their strategic divestments in Mexico, accelerating execution while preserving shareholder value.</p>
+                        <p>His advisory experience includes supporting private investors such as Rodina, guiding and executing its initial hospitality investments, as well as assisting banks and institutional clients in tourism and real estate transactions across Mexico and the Caribbean.</p>
+                        <p>Domingo has served on the boards of companies within these sectors, offering strategic direction through growth, restructuring, and capital deployment. He is known for his technical expertise, regional insight, honesty, clarity, and consistent delivery.</p>
+                        <p>Now, as co-founder of CRSA, Domingo partners with investors, institutions, and operators to assess opportunities, structure complex deals, and create lasting value across evolving markets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Who We Work With</h2>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="client-card">
+                        <i class="fas fa-building"></i>
+                        <h3>Owners & Investors</h3>
+                        <p>We work with hospitality asset owners, family offices, and institutional investors to protect and grow long-term value. From underwriting and investment strategy to operator alignment and capital planning, we provide strategic support across the full asset lifecycle.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="client-card">
+                        <i class="fas fa-university"></i>
+                        <h3>Lenders</h3>
+                        <p>We support credit institutions in shaping and managing their hospitality exposure—through asset-level insight, portfolio analysis, and strategic guidance on deployment, concentration, and repositioning decisions.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="client-card">
+                        <i class="fas fa-concierge-bell"></i>
+                        <h3>Operators</h3>
+                        <p>We collaborate with operators navigating performance demands, partner expectations, and evolving market dynamics. Our strategic input helps align operations with ownership priorities and long-term asset value.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+
+<section class="testimonial-section">
+    <div class="container">
+        <div class="testimonial-content" data-aos="fade-up">
+            <h3>We've Sat in Your Seat</h3>
+            <p class="lead">We're not external consultants—we're principals who have been on all sides of the table.</p>
+            <p class="lead">We've made high-stakes decisions as lenders, owners, investors, and operators.</p>
+            <p class="lead">That firsthand experience shapes how we think, how we work, and how we help you create value.</p>
+            <p class="lead"><strong>And when we work with you, it's us—directly. Always.</strong></p>
+        </div>
+    </div>
 </section>
 
-<!-- Experience Section -->
-<section class="py-7 bg-light">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6 mb-5 mb-lg-0">
-        <h2 class="mb-4">We've Sat in Your Seat</h2>
-        <p class="lead mb-4">We're not external consultants—we're principals who have been on all sides of the table.</p>
-        <p>We've made high-stakes decisions as lenders, owners, investors, and operators. That firsthand experience shapes how we think, how we work, and how we help you create value.</p>
-        <p class="font-weight-bold">And when we work with you, it's us—directly. Always.</p>
-      </div>
-      <div class="col-lg-6">
-        <div class="ps-lg-5">
-          <div class="card border-0 bg-primary text-white overflow-hidden">
-            <div class="card-body p-5">
-              <div class="position-relative z-index-1">
-                <h3 class="mb-4">Why Clients Trust Us</h3>
-                <ul class="list-unstyled mb-0">
-                  <li class="mb-3 d-flex">
-                    <i class="fas fa-check-circle me-3 mt-1"></i>
-                    <span>50+ years combined hospitality experience</span>
-                  </li>
-                  <li class="mb-3 d-flex">
-                    <i class="fas fa-check-circle me-3 mt-1"></i>
-                    <span>Hands-on operational and financial expertise</span>
-                  </li>
-                  <li class="mb-3 d-flex">
-                    <i class="fas fa-check-circle me-3 mt-1"></i>
-                    <span>Proven track record in complex transactions</span>
-                  </li>
-                  <li class="d-flex">
-                    <i class="fas fa-check-circle me-3 mt-1"></i>
-                    <span>Direct partner access with no junior intermediaries</span>
-                  </li>
-                </ul>
-              </div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center" data-aos="fade-up">
+                    <h2 class="mb-5">Connect With Us</h2>
+                    <p class="lead mb-5">Ready to discuss how we can support your hospitality strategy?</p>
+                    
+                    <div class="mb-4">
+                        <a href="mailto:contact@crsa-advisors.com" class="btn btn-primary btn-lg contact-btn">
+                            CONTACT@CRSA.COM
+                        </a>
+                    </div>
+                    
+                    <p class="text-muted">Phone consultations available upon request after initial contact</p>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- CTA Section -->
-<section class="py-6 bg-primary text-white">
-  <div class="container">
-    <div class="row justify-content-center text-center">
-      <div class="col-lg-8">
-        <h2 class="display-5 mb-4">Ready to transform your hospitality strategy?</h2>
-        <p class="lead mb-5 opacity-75">Schedule a confidential consultation with our principals.</p>
-        <a href="{{ url_for('main.contact') }}" class="btn btn-light btn-lg px-5">Get Started</a>
-      </div>
-    </div>
-  </div>
-</section>
-{% endblock %}
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h3 class="fw-bold mb-3">CRSA</h3>
+                    <p class="text-white-50 mb-4">Strategic Advisory for Hospitality Investors, Owners, and Operators</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home">Home</a></li>
+                        <li class="mb-2"><a href="#services">Services</a></li>
+                        <li class="mb-2"><a href="#expertise">Expertise</a></li>
+                        <li class="mb-2"><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Contact</h5>
+                    <p class="text-white-50 mb-2">contact@crsa.com</p>
+                    <p class="text-white-50 mb-0">Available by appointment</p>
+                </div>
+            </div>
+            
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+            
+            <div class="text-center">
+                <p class="mb-0 text-white-50">&copy; 2025 Coll Rex Strategic Advisors. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const menuOverlay = document.getElementById('menu-overlay');
+        const menuItems = document.querySelectorAll('[data-menu-item]');
+
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            
+            // Toggle body scroll when menu is open
+            if (menuOverlay.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close menu when clicking on a menu item
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Simple scroll animation detection
+        function checkScroll() {
+            const elements = document.querySelectorAll('[data-aos]');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const isVisible = (rect.top <= window.innerHeight * 0.75) && (rect.bottom >= 0);
+                if (isVisible) {
+                    el.classList.add('aos-animate');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+    </script>
+</body>
+</html>

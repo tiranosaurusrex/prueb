@@ -3,84 +3,61 @@
 {% block title %}About Our Team | CRSA{% endblock %}
 
 {% block content %}
-<section class="py-7">
-  <div class="container">
-    <div class="text-center mb-6">
-      <h2 class="section-title">Deep Expertise, Strategic Insight</h2>
-      <p class="lead text-muted mx-auto" style="max-width: 700px;">Seasoned professionals with proven track records in hospitality leadership</p>
+<section class="content-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Deep Expertise, Strategic Insight</h2>
+            <p class="section-subtitle">Principals who have been on all sides of the table</p>
+        </div>
+        
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <div class="card p-4 h-100">
+                    <h4 class="text-primary mb-3">Javier Coll</h4>
+                    <p class="mb-3">Hospitality executive and transformative dealmaker with over 30 years of experience in global resort and leisure sectors. As co-founder of Apple Leisure Group (ALG) and its flagship brand AMResorts, he reshaped the all-inclusive resort model.</p>
+                    <p class="mb-3">Under Javier's leadership, ALG expanded significantly across Latin America, the Caribbean, and Europe, growing from a few properties to over 100 resorts. He orchestrated major investment and M&A transactions, including strategic partnerships with Bain Capital and KKR.</p>
+                    <p class="mb-0">The acquisition of ALG by Hyatt Hotels was a landmark event in the global hospitality industry, with Javier playing a central role as one of its key architects.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card p-4 h-100">
+                    <h4 class="text-primary mb-3">Domingo Rex</h4>
+                    <p class="mb-3">Senior financial advisor and strategic practitioner with over 25 years of experience across banking, credit, and investment advisory in Europe and Latin America.</p>
+                    <p class="mb-3">Previously held senior roles at Banco CAM, including Managing Director and Country Head in Mexico, where he managed a tourism-focused credit portfolio of nearly $2 billion. Also advised major Spanish banks during strategic divestments.</p>
+                    <p class="mb-0">His advisory experience includes supporting private investors and institutional clients in tourism and real estate transactions across Mexico and the Caribbean, known for technical expertise and consistent delivery.</p>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- Javier Coll Bio -->
-    <div class="row align-items-center mb-6">
-      <div class="col-lg-4 mb-4 mb-lg-0">
-        <img src="{{ url_for('static', filename='img/javier-coll.jpg') }}" alt="Javier Coll" class="img-fluid rounded-3 shadow">
-      </div>
-      <div class="col-lg-8">
-        <h3>Javier Coll</h3>
-        <p class="text-primary">Co-Founder & Strategic Advisor</p>
-        <p>Javier is a hospitality executive and transformative dealmaker with over 30 years of experience in global resort and leisure sectors. As co-founder of Apple Leisure Group (ALG) and its flagship brand AMResorts, he reshaped the all-inclusive resort model, transforming it into a premium, investment-grade hospitality platform.</p>
-        <p>Under Javier's leadership, ALG expanded significantly across Latin America, the Caribbean, and Europe, growing from a few properties to over 100 resorts. He orchestrated major investment and M&A transactions, including strategic partnerships with Bain Capital and KKR, and multiple acquisitions across the hospitality value chain, positioning ALG as a vertically integrated market leader.</p>
-        <p>The acquisition of ALG by Hyatt Hotels was a landmark event in the global hospitality industry, with Javier playing a central role as one of its key architects. He remained with Hyatt to oversee integration and expansion, driving substantial international growth.</p>
-      </div>
-    </div>
-
-    <!-- Domingo Rex Bio -->
-    <div class="row align-items-center">
-      <div class="col-lg-4 mb-4 mb-lg-0 order-lg-2">
-        <img src="{{ url_for('static', filename='img/domingo-rex.jpg') }}" alt="Domingo Rex" class="img-fluid rounded-3 shadow">
-      </div>
-      <div class="col-lg-8 order-lg-1">
-        <h3>Domingo Rex</h3>
-        <p class="text-primary">Co-Founder & Financial Advisor</p>
-        <p>Domingo is a senior financial advisor and strategic practitioner with over 25 years of experience across banking, credit, and investment advisory in Europe and Latin America. He has advised financial institutions, funds, and corporate clients on complex transactions, particularly within the hospitality, real estate, and special situations sectors.</p>
-        <p>Previously, Domingo held senior roles at Banco CAM, including Managing Director and Country Head in Mexico, where he managed a tourism-focused credit portfolio of nearly $2 billion. He also advised major Spanish banks such as CaixaBank and Bankia during their strategic divestments in Mexico, accelerating execution while preserving shareholder value.</p>
-        <p>His advisory experience includes supporting private investors such as Rodina, guiding and executing its initial hospitality investments, as well as assisting banks and institutional clients in tourism and real estate transactions across Mexico and the Caribbean.</p>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- Who We Work With Section -->
-<section class="py-7 bg-light">
-  <div class="container">
-    <div class="text-center mb-6">
-      <h2 class="section-title">Who We Work With</h2>
+<!-- Who We Work With -->
+<section class="content-section bg-light-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Who We Work With</h2>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="card service-card text-center">
+                    <h4 class="text-primary mb-3">Owners & Investors</h4>
+                    <p class="mb-0">We work with hospitality asset owners, family offices, and institutional investors to protect and grow long-term value. From underwriting and investment strategy to operator alignment and capital planning.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card service-card text-center">
+                    <h4 class="text-primary mb-3">Lenders</h4>
+                    <p class="mb-0">We support credit institutions in shaping and managing their hospitality exposure—through asset-level insight, portfolio analysis, and strategic guidance on deployment and repositioning decisions.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card service-card text-center">
+                    <h4 class="text-primary mb-3">Operators</h4>
+                    <p class="mb-0">We collaborate with operators navigating performance demands, partner expectations, and evolving market dynamics. Our strategic input helps align operations with ownership priorities.</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card border-0 h-100 bg-white shadow-sm">
-          <div class="card-body p-4 text-center">
-            <div class="text-primary mb-3">
-              <i class="fas fa-building fa-3x"></i>
-            </div>
-            <h5>Owners & Investors</h5>
-            <p class="text-muted">We work with hospitality asset owners, family offices, and institutional investors to protect and grow long-term value.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card border-0 h-100 bg-white shadow-sm">
-          <div class="card-body p-4 text-center">
-            <div class="text-primary mb-3">
-              <i class="fas fa-university fa-3x"></i>
-            </div>
-            <h5>Lenders</h5>
-            <p class="text-muted">We support credit institutions in shaping and managing their hospitality exposure through asset-level insight and strategic guidance.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card border-0 h-100 bg-white shadow-sm">
-          <div class="card-body p-4 text-center">
-            <div class="text-primary mb-3">
-              <i class="fas fa-concierge-bell fa-3x"></i>
-            </div>
-            <h5>Operators</h5>
-            <p class="text-muted">We collaborate with operators navigating performance demands, partner expectations, and evolving market dynamics.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 {% endblock %}
