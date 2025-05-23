@@ -1,4 +1,4 @@
-# COMP0035 Coursework 02 starter repository
+
 
 1. Clone the project in VS Code, PyCharm or other Python IDE from GitHub
 2. The coursework code has the following structure:
